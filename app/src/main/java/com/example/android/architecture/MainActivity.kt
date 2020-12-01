@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateDisplay() {
-        for (i in 0 until imageViews.size) {
+        for (i in imageViews.indices) {
             val drawableId = when (dice[i]) {
                 1 -> R.drawable.die_1
                 2 -> R.drawable.die_2
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         headline.text = headlineText
     }
 
-    override fun onSaveInstanceState(outState: Bundle?) {
+    override fun onSaveInstanceState(outState: Bundle) {
         outState?.putString(HEADLINE_TEXT, headlineText)
         outState?.putIntArray(DICE_COLLECTION, dice)
         super.onSaveInstanceState(outState)
